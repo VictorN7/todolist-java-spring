@@ -18,10 +18,6 @@ public class Todo {
 	private boolean realizado;
 	private int  prioridade;
 	
-	
-	
-	
-	
 	public Long getId() {
 		return id;
 	}
