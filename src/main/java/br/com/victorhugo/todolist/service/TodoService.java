@@ -20,9 +20,9 @@ public class TodoService {
 		return list();
 	}
 	
-	public List<Todo> list(){
+	public List<Todo> list(){ 
 		Sort sort = Sort.by("prioridade").descending().and(Sort.by("nome").ascending());
-		return todoRepository.findAll(sort);
+		return todoRepository.findAll(sort); 
 	}
 		
 	public List<Todo> update(Todo todo){
