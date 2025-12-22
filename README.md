@@ -23,7 +23,8 @@ Projeto faz parte [desse](https://www.youtube.com/watch?v=IjProDV001o) desafio.
 - API Rest
 - Consultas com Spring Data JPA
 - Injeção de dependências
-- Geração automática do Swagger com o OpenAPI 3 
+- Geração automática do Swagger com o OpenAPI 3
+- Exceptions personalizadas
 
 
 ## 🚀Como rodar localmente?
@@ -165,3 +166,4 @@ Conecte-se comigo no LinkeIn!
 
 
 <a href="https://www.linkedin.com/in/victor-nogueira-32a519184/" target="_blank"><img style="height:25px" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/></a>
+
