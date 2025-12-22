@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/todos")
 public class TodoController {
 	
-	private TodoService todoService; 
+	private final TodoService todoService; 
 	
 	public TodoController(TodoService todoService) {
 		this.todoService = todoService;
@@ -33,9 +33,9 @@ public class TodoController {
 		return todoService.list();
 	}
 	
-	@PutMapping
-	public List<Todo> update(@RequestBody Todo todo){
-		return todoService.update(todo);
+	@PutMapping("{id}")
+	public List<Todo> update(@PathVariable Long id, @RequestBody Todo todo){
+		return todoService.update(id, todo);
 	}
 	
 	@DeleteMapping("{id}")

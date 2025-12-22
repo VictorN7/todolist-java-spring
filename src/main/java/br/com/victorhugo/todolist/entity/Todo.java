@@ -5,7 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name ="todos")
@@ -14,53 +17,63 @@ public class Todo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
-	@NotBlank
-	private String nome;
-	@NotBlank
-	private String descricao; 
 	
-	private boolean realizado;
-	private int prioridade;
+	@NotBlank
+	@Size(max = 100)
+	private String name;
+
+	@NotBlank
+	@Size(max = 255)
+	private String description; 
+	
+	private Boolean completed;
+	
+	@Min(1)
+	@Max(3)
+	private Integer priority;
 	
 	public Todo() {}
 	
-	public Todo(String nome, String descricao, boolean realizado, int prioridade) {
-		this.nome = nome;
-		this.descricao = descricao;
-		this.realizado = realizado;
-		this.prioridade = prioridade;
+	public Todo(String name, String description, Boolean completed, Integer priority) {
+		this.name = name;
+		this.description = description;
+		this.completed = completed;
+		this.priority = priority;
 	}
-	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setCompleted(Boolean completed) {
+		this.completed = completed;
+	}
+
+	public void setPriority(Integer priority) {
+		this.priority = priority;
+	}
+
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public String getName() {
+		return name;
 	}
-	public String getNome() {
-		return nome;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public Boolean getCompleted() {
+		return completed;
 	}
-	public String getDescricao() {
-		return descricao;
+
+	public Integer getPriority() {
+		return priority;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	public boolean isRealizado() {
-		return realizado;
-	}
-	public void setRealizado(boolean realizado) {
-		this.realizado = realizado;
-	}
-	public int getPrioridade() {
-		return prioridade;
-	}
-	public void setPrioridade(int prioridade) {
-		this.prioridade = prioridade;
-	}
-	
-	
 }
