@@ -23,7 +23,8 @@ Projeto faz parte [desse](https://www.youtube.com/watch?v=IjProDV001o) desafio.
 - API Rest
 - Consultas com Spring Data JPA
 - Injeção de dependências
-- Geração automática do Swagger com o OpenAPI 3 
+- Geração automática do Swagger com o OpenAPI 3
+- Exceptions personalizadas
 
 
 ## 🚀Como rodar localmente?
@@ -56,15 +57,15 @@ Para realizar as requisições, utilizamos o [httpie](https://httpie.io/)(ferram
 - **Criar tarefa**
 
 ```
-$ http POST :8080/todos nome="Elaborar Script" descricao="Montar script para codificação..." prioridade=1
+$ http POST :8080/todos name="Elaborar Script" description="Montar script para codificação..." priority=1
 
 [
     {
-        "descricao": "Montar script para codificação...",
+        "description": "Montar script para codificação...",
         "id": 9,
-        "nome": "Elaborar Script",
-        "prioridade": 1,
-        "realizado": false
+        "name": "Elaborar Script",
+        "priority": 1,
+        "completed": false
     }
 ]
 ```
@@ -76,11 +77,11 @@ $ http GET :8080/todos
 
 [
     {
-        "descricao": "Montar script para codificação...",
+        "description": "Montar script para codificação...",
         "id": 9,
-        "nome": "Elaborar Script",
-        "prioridade": 1,
-        "realizado": false
+        "name": "Elaborar Script",
+        "priority": 1,
+        "completed": false
     }
 ]
 ```
@@ -88,15 +89,15 @@ $ http GET :8080/todos
 - **Alterar tarefa**
 
 ```
-$ http PUT :8080/todos id=9 nome="Criar Script" descricao="Elaborar script para aula de POO na linguagem Java" prioridade=1 realizado=true
+$ http PUT :8080/todos/9 name="Criar Script" description="Elaborar script para aula de POO na linguagem Java" priority=1 completed=true
 
 [
     {
-        "descricao": "Elaborar script para aula de POO na linguagem Java",
+        "description": "Elaborar script para aula de POO na linguagem Java",
         "id": 9,
-        "nome": "Criar Script",
-        "prioridade": 1,
-        "realizado": true
+        "name": "Criar Script",
+        "priority": 1,
+        "completed": true
     }
 ]
 ```
@@ -163,4 +164,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 Conecte-se comigo no LinkeIn! 
 
+
 <a href="https://www.linkedin.com/in/victor-nogueira-32a519184/" target="_blank"><img style="height:25px" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/></a>
+
