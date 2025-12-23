@@ -33,12 +33,12 @@ public class TodoController {
 		return todoService.list();
 	}
 	
-	@PutMapping("{id}")
+	@PutMapping("/{id}")
 	public List<Todo> update(@PathVariable Long id, @RequestBody Todo todo){
 		return todoService.update(id, todo);
 	}
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("/{id}")
 	public List<Todo> delete(@PathVariable("id") Long id){
 		return todoService.delete(id);
 	}

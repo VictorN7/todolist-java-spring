@@ -33,7 +33,7 @@ public class TodoService {
 		entity.setName(todo.getName());
 		entity.setPriority(todo.getPriority());
 		entity.setDescription(todo.getDescription());
-		entity.setCompleted(todo.getCompleted());
+		entity.setStatus(todo.getStatus());
 		
 		todoRepository.save(entity);
 		return list();
