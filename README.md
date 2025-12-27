@@ -4,7 +4,7 @@
 
 API de gerenciador de tarefas To-Do para aprofundar na construção de CRUD.
 
-Projeto faz parte [desse](https://www.youtube.com/watch?v=IjProDV001o) desafio.
+Projeto faz parte de um desafio para desenvolvedor backend júnior. 
 
 ### 💻Tecnologias
 
@@ -64,8 +64,8 @@ $ http POST :8080/todos name="Elaborar Script" description="Montar script para c
         "description": "Montar script para codificação...",
         "id": 9,
         "name": "Elaborar Script",
-        "priority": 1,
-        "completed": false
+        "priority": "MEDIUM",
+        "status": "IN_PROGRESS"
     }
 ]
 ```
@@ -80,8 +80,8 @@ $ http GET :8080/todos
         "description": "Montar script para codificação...",
         "id": 9,
         "name": "Elaborar Script",
-        "priority": 1,
-        "completed": false
+        "priority": "LOW",
+        "status": "PENDING"
     }
 ]
 ```
@@ -89,15 +89,15 @@ $ http GET :8080/todos
 - **Alterar tarefa**
 
 ```
-$ http PUT :8080/todos/9 name="Criar Script" description="Elaborar script para aula de POO na linguagem Java" priority=1 completed=true
+$ http PUT :8080/todos/9 name="Criar Script" description="Elaborar script para aula de POO na linguagem Java" priority="LOW" status="PENDING"
 
 [
     {
         "description": "Elaborar script para aula de POO na linguagem Java",
         "id": 9,
         "name": "Criar Script",
-        "priority": 1,
-        "completed": true
+        "priority": "LOW",
+        "status": "PENDING" 
     }
 ]
 ```
@@ -166,4 +166,6 @@ Conecte-se comigo no LinkeIn!
 
 
 <a href="https://www.linkedin.com/in/victor-nogueira-32a519184/" target="_blank"><img style="height:25px" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/></a>
+
+
 
