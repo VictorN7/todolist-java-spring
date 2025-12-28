@@ -25,6 +25,29 @@ Projeto faz parte de um desafio para desenvolvedor backend júnior.
 - Injeção de dependências
 - Geração automática do Swagger com o OpenAPI 3
 - Exceptions personalizadas
+- Testes unitários utilizando o JUnit
+
+
+## Arquitetura do Projeto
+
+O projeto segue uma arquitetura em camadas, separando responsabilidades da seguinte forma:
+
+- **Controller**: Expõe os endpoints REST e recebe as requisições.
+- **Service**: Concentra as regras de negócio e realiza as operações.
+- **Repository**: Responsável pela persistência dos dados.
+- **Entity**: Representa o modelo de domínio.
+- **Enums**: Definem valores fixos do domínio.
+- **Exception**: Exceções de negócio lançadas pela camada de serviço.
+
+
+###Fluxo principal da aplicação:
+
+Controller → Service → Repository → Banco de Dados
+
+
+###Estrutura completa da aplicação:
+
+## <img width="auto" height="auto" alt="image" src="https://www.plantuml.com/plantuml/dpng/NP11ReGm34NtEON5dYjKI5Mxx8Bs0b5mHn4XHhOp6ZJYxYC80uILe-_t_UqqefOr3S6CrlNsXb0vYieK0d85JmFWWXM1FolzvzunipaCWdpt3g_qRvOBb74ayKeyPTf7HVwt3bT7ktSB4qRrEbt7Nv0qI2QMPyvNgqdC301dyk5mL4_nFAz5eSGEVqY_ASNkwmqj8ST_G5r_W6ndRNNLZhCAEIzkSidAicV9x54DnYuDuGK0"/>
 
 
 ## 🚀Como rodar localmente?
