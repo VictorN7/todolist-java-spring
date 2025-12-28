@@ -4,42 +4,51 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.web.reactive.server.WebTestClient;
-
-
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.victorhugo.todolist.entity.Todo;
 import br.com.victorhugo.todolist.enums.TaskPriority;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
 class TodolistApplicationTests {
 
-	@Autowired
-	private WebTestClient webTestClient;
-	
-	
-	@Test
-	void testeCreatTodoSucess() {
-		var todo = new Todo("todo 1", "desc todo 1", TaskPriority.LOW);
-		
-		webTestClient.post().uri("/todos").bodyValue(todo).exchange()
-		.expectStatus().isOk().expectBody().jsonPath("$").isArray()
-		.jsonPath("$.length()").isEqualTo(1) 
-		.jsonPath("$[0].name").isEqualTo(todo.getName())
-		.jsonPath("$[0].description").isEqualTo(todo.getDescription())
-		.jsonPath("$[0].completed").isEqualTo(todo.getStatus())
-		.jsonPath("$[0].priority").isEqualTo(todo.getPriority());
-		
-	}
-	
-	@Test
-	void testeCreatTodoFailure() {
-		
-		webTestClient
-			.post()
-			.uri("/todos")
-			.bodyValue(new Todo("","", TaskPriority.LOW))
-			.exchange()
-			.expectStatus().isBadRequest();
-	}
+    @Autowired
+    private MockMvc mockMvc;
 
+    ObjectMapper objectMapper = new ObjectMapper();
+
+    @Test
+    void testeCreateTodoSuccess() throws Exception {
+        Todo todo = new Todo("todo 1", "desc todo 1", TaskPriority.LOW);
+
+        mockMvc.perform(
+                post("/todos")
+                    .contentType("application/json")
+                    .content(objectMapper.writeValueAsString(todo))
+            )
+            .andExpect(status().isCreated())
+            .andExpect(jsonPath("$").isArray())
+            .andExpect(jsonPath("$.length()").value(1))
+            .andExpect(jsonPath("$[0].name").value(todo.getName()))
+            .andExpect(jsonPath("$[0].description").value(todo.getDescription()))
+            .andExpect(jsonPath("$[0].priority").value(todo.getPriority().toString()));
+    }
+
+    @Test
+    void testeCreateTodoFailure() throws Exception {
+        Todo todo = new Todo("", "", TaskPriority.LOW);
+
+        mockMvc.perform(
+                post("/todos")
+                    .contentType("application/json")
+                    .content(objectMapper.writeValueAsString(todo))
+            )
+            .andExpect(status().isBadRequest());
+    }
 }
