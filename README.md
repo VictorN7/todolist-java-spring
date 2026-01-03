@@ -124,7 +124,7 @@ Foram implementados testes de integração cobrindo:
 
 ### ⚙️Configuração de Ambientes
 
- ** Dev (MySQL) **
+ **Dev (MySQL)**
 
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/todolist
@@ -133,14 +133,14 @@ spring.datasource.password=********
 spring.jpa.hibernate.ddl-auto=update 
 ```
 
-** Test (H2) **
+**Test (H2)**
 
 ```
 spring.datasource.url=jdbc:h2:mem:todolist-test
 spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
-** Configurações Globais **
+**Configurações Globais**
 
 - Profiles do Spring
 - SQL logging habilitado
