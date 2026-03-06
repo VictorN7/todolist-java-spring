@@ -3,6 +3,8 @@
 
 API REST desenvolvida em Java com Spring Boot para gerenciamento de tarefas (ToDo), aplicando boas práticas de arquitetura, modelagem de domínio, tratamento global de exceções, profiles de ambiente e testes de integração.
 
+Projeto desenvolvido durante mentoria com foco em consolidar boas práticas de backend com Java e Spring Boot.
+
 Este projeto foi construído com foco em padrões utilizados no mercado, indo além de um CRUD simples, demonstrando maturidade técnica e organização de código.
 
 
@@ -240,7 +242,8 @@ $ http DELETE :8080/todos/9
 Conecte-se comigo no LinkeIn! 
 
 
-<a href="https://www.linkedin.com/in/victor-nogueira-32a519184/" target="_blank"><img style="height:25px" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/></a>
+<a href="https://www.linkedin.com/in/victor-nogueira-ti/" target="_blank"><img style="height:25px" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/></a>
+
 
 
 
